@@ -71,7 +71,7 @@ export class CardGroup {
   }
 
   public sortDescending() {
-    return this.cards.toSorted((a: Card, b: Card) => {
+    return this.cards.sort((a: Card, b: Card) => {
       return b.value - a.value;
     });
   }
