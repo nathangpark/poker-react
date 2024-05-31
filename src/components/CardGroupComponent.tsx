@@ -14,7 +14,6 @@ const CardGroupComponent = ({
   dealtID,
   hidden = false,
 }: Props) => {
-  if (cardGroup == undefined || cardGroup.cards == undefined) return;
   className += cardGroup.cards.length == 2 ? " two-grid" : " five-grid";
   return (
     <div>
