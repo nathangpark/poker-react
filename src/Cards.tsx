@@ -13,7 +13,7 @@ export class Card {
   constructor(value: number, suit: Suits) {
     this.value = value;
     this.suit = suit;
-    const suitId =
+    const suitId =  
       suit === Suits.Spades
         ? 0
         : suit === Suits.Clubs
