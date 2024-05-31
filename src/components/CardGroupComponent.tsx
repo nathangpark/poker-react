@@ -17,7 +17,7 @@ const CardGroupComponent = ({
   if (cardGroup == undefined || cardGroup.cards == undefined) return;
   className += cardGroup.cards.length == 2 ? " two-grid" : " five-grid";
   return (
-    <>
+    <div>
       <div className={"card-group " + className}>
         {cardGroup.cards.map((card: Card | undefined) => {
           if (card != undefined) {
@@ -32,7 +32,7 @@ const CardGroupComponent = ({
           }
         })}
       </div>
-    </>
+    </div>
   );
 };
 
