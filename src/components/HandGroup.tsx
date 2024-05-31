@@ -8,7 +8,7 @@ interface Props {
 
 const HandGroup = ({ hand }: Props) => {
   return (
-    <>
+    <div>
       <div className={"hand-group five-grid-small"}>
         {hand.cards.map((card: Card) => (
           <SmallCardComponent
@@ -17,7 +17,7 @@ const HandGroup = ({ hand }: Props) => {
           />
         ))}
       </div>
-    </>
+    </div>
   );
 };
 
