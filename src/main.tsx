@@ -1,13 +1,24 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import "bootstrap/dist/css/bootstrap.css";
+import "./styles/index.css"
 
-import 'bootstrap/dist/css/bootstrap.css'
-import './App.css'
-import './style/Grid.css'
+import "./styles/Card.css"
+import "./styles/Area.css"
+import "./styles/Buttons.css"
+import "./styles/Card.css"
+import "./styles/CardGroup.css"
+import "./styles/Hand.css"
+import "./styles/Player.css"
+import "./styles/Pot.css"
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+
+
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>,
-)
+  </React.StrictMode>
+);
+
+

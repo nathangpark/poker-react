@@ -1,0 +1,44 @@
+.play-area {
+  top: 50%;
+  left: 50%;
+  width: 95%;
+  height: 54vw;
+  display:block;
+  position: absolute;
+  max-width: 170vh;
+  transform: translate(-50%, -50%)
+}
+
+.title {
+  position: absolute;
+  width: 40vw;
+  height: 10vw;
+  left:50%;
+  bottom:60%;
+  transform: translate(-50%, -50%);
+  justify-content: center;
+  align-items: center;
+}
+
+.title-text {
+  position:absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+
+  color:white;
+  font-size: 10vw;
+  font-weight: 700;
+
+  text-shadow: -5px 5px 2px rgba(0, 0, 0, 0.439);
+}
+
+.my-name {
+  position:absolute;
+  left: 50%;
+  bottom: -60%;
+  transform: translate(-50%,-50%);
+  font-size: 3vw;
+  font-weight: 500;
+  opacity: 0.9;
+}
