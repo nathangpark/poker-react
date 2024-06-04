@@ -8,9 +8,9 @@
   height:5.5vw;
   
   left: 60%;
-  bottom: -10%;
+  bottom: 0%;
 
-  transform: translate(-17%,-50%);
+  transform: translate(-17%,0%);
   text-overflow:clip;
   font-size: 2vw;
   color:white;

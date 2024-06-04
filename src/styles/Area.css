@@ -5,8 +5,31 @@
   height: 54vw;
   display:block;
   position: absolute;
-  max-width: 170vh;
-  transform: translate(-50%, -50%)
+
+  transform: translate(-50%, -50%) scale(0.9);
+
+}
+
+.play-area:hover .card-component {
+  transition: left 0.5s, top 0.2s;
+}
+
+.table {
+  position: absolute;
+  width: 80%;
+  height: 104%;
+  bottom: -4%;
+  left:0;
+
+
+  background-color: rgb(57, 156, 95);
+  border-radius: 4vw;
+
+  border-width: 1vw;
+  border-color: rgba(19, 19, 19, 0.216);
+  border-style: solid;
+
+  box-shadow: -2vw 2vw 1vw rgba(0, 0, 0, 0.189);
 }
 
 .title {
