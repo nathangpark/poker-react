@@ -42,7 +42,7 @@ function getPositionOrder(): number[] {
     : opponentNumber == 3
     ? [7, 4, 2, 5]
     : opponentNumber == 4
-    ? [7, 6, 1, 3, 8]
+    ? [7, 4, 1, 3, 5]
     : opponentNumber == 5
     ? [7, 4, 1, 2, 3, 5]
     : opponentNumber == 6
@@ -122,6 +122,7 @@ function resetCards() {
       })
     );
 
+
   allCards = myCards.cards;
   // undeal order
   for (let i = 0; i < opponentNumber; i++)
@@ -159,6 +160,11 @@ function App() {
     hookSync.isResetting = true;
     hookSync.winnerPositions = [];
     hookSync.isRevealed = false;
+
+    allPlayers.forEach((player: Player) => {
+      if (player.chips == 0 && !hookSync.outList.includes(player)) hookSync.outList.push(player);
+    });
+
     updateHook();
 
     await sleep(500);
@@ -184,7 +190,7 @@ function App() {
     if (
       hookSync.outList.includes(player) ||
       oppsPlayer.every((player: Player) => {
-        player.chips == 0;
+        return player.chips == 0;
       })
     ) {
       // GAME OVER
@@ -195,12 +201,13 @@ function App() {
     }
 
     await sleep(1000);
+    console.log(dealOrder);
 
     handleInitialBet();
     await sleep(500 * allPlayers.length);
 
     handleDeal();
-
+    
     hookSync.isResetting = false;
     updateHook();
   };
@@ -285,7 +292,7 @@ function App() {
     }
 
     totalAmount = amount + player.contributed;
-    player.contributed = amount;
+    player.contributed += amount;
     bet(player, amount);
 
     // start cycle at next position
@@ -404,7 +411,7 @@ function App() {
     // start cycle
     while (
       matchedPlayerCount !==
-      allPlayers.length - hookSync.foldList.length
+      allPlayers.length - hookSync.foldList.length - hookSync.outList.length
     ) {
       // do not cycle to them if folded or out, skip
       if (
@@ -428,7 +435,10 @@ function App() {
         // go next until done dealing
         if (
           dealOrder[currentGroup] == undefined ||
-          allPlayers.length - hookSync.foldList.length - hookSync.outList.length == 1
+          allPlayers.length -
+            hookSync.foldList.length -
+            hookSync.outList.length ==
+            1
         ) {
           hookSync.allCardsDealt = true;
           updateHook();
@@ -475,7 +485,7 @@ function App() {
 
         updateHook();
         flashAction(index);
-      } else if (allPlayers[index].chips == betAmount) {
+      } else if (allPlayers[index].chips <= betAmount) {
         // on all in
         hookSync.actionList[index] = "All in";
         flashAction(index);
@@ -535,8 +545,8 @@ function App() {
         let id = dealOrder[currentGroup][i];
         hookSync.dealtList.push(id);
         updateHook();
+        if (id != 0) await sleep(250);
       } catch {}
-      await sleep(250);
     }
 
     hookSync.isDealing = false;
@@ -615,10 +625,6 @@ function App() {
     hookSync.pot = 0;
     hookSync.isRevealed = true;
     hookSync.winnerPositions = winners.map((winner: Player) => winner.position);
-
-    allPlayers.forEach((player: Player) => {
-      if (player.chips == 0) hookSync.outList.push(player);
-    });
     updateHook();
   };
 
@@ -641,6 +647,7 @@ function App() {
     <>
       {hook.started && (
         <div className="play-area">
+          <div className="table"/>
           {oppsPlayer.map((oppPlayer: Player, index: number) => (
             <PlayerComponent
               player={oppPlayer}
@@ -677,7 +684,8 @@ function App() {
             !hook.foldList.includes(player) &&
             !hook.allCardsDealt &&
             !hook.isDealing &&
-            hook.currentlyActive == player && (
+            hook.currentlyActive == player &&
+            totalAmount - player.contributed <= player.chips && (
               <BetComponent
                 handleBet={handleBet}
                 player={player}
@@ -707,7 +715,9 @@ function App() {
             hook.currentlyActive == player && (
               <Button onClick={handleCheck} className="btns deal-btn">
                 {hook.needToCall
-                  ? "Call: " + (totalAmount - player.contributed)
+                  ? totalAmount - player.contributed > player.chips
+                    ? "All in"
+                    : "Call: " + (totalAmount - player.contributed)
                   : "Check"}
               </Button>
             )}
