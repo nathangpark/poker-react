@@ -201,10 +201,9 @@ function App() {
     }
 
     await sleep(1000);
-    console.log(dealOrder);
 
     handleInitialBet();
-    await sleep(500 * allPlayers.length);
+    await sleep(500 * (allPlayers.length - hookSync.outList.length));
 
     handleDeal();
     
@@ -521,7 +520,7 @@ function App() {
     // if at the end of dealing, set allCardsDealt to true
     if (
       dealOrder[currentGroup] == undefined ||
-      allPlayers.length - hookSync.foldList.length == 1
+      allPlayers.length - hookSync.foldList.length - hookSync.outList.length == 1
     ) {
       hookSync.allCardsDealt = true;
       updateHook();
