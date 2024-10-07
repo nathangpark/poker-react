@@ -12,4 +12,4 @@ Current Features
 - Variable number of opponents
 - Chips management
 
-Play the game [here](https://nathangpark.github.io/poker-react/)
+Play the game [HERE](https://nathangpark.github.io/poker-react/)
