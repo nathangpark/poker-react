@@ -1,0 +1,17 @@
+
+.card-group {
+  display: grid;
+  width: 0;
+  height: 0vw;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+.two-grid {
+  grid-template-columns: 3.5vw 3.5vw
+}
+
+.five-grid {
+  grid-template-columns: 3.5vw 3.5vw 3.5vw 3.5vw 3.5vw;
+}
