@@ -643,6 +643,9 @@ function App() {
 
   return (
     <>
+      <a href="https://github.com/nathangpark/poker-react/tree/main">
+        <img className="github-link"src="./github-mark.svg"/>    
+      </a>
       {hook.started && (
         <div className="play-area">
           <div className="table"/>
