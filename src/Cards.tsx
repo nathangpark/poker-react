@@ -13,11 +13,7 @@ export class Card {
   constructor(value: number, suit: Suits) {
     this.value = value;
     this.suit = suit;
-<<<<<<< HEAD
-    const suitId =
-=======
     const suitId =  
->>>>>>> refs/remotes/origin/main
       suit === Suits.Spades
         ? 0
         : suit === Suits.Clubs

@@ -26,11 +26,7 @@ const PlayerComponent = ({ player,dealtID, hidden=false, revealed, winner=false,
         dealtID={dealtID}
         hidden={hidden}
       />
-<<<<<<< HEAD
-      {revealed && !folded && <HandComponent hand={player.hand as Hand}/>}
-=======
       {revealed && !folded && !out && <HandComponent hand={player.hand as Hand}/>}
->>>>>>> refs/remotes/origin/main
       <div className={"player-name" + (winner ? " player-winner" : out ? " player-out" : "") }>
         {player.name}: {player.chips}
       </div>

@@ -8,15 +8,9 @@
   height:5.5vw;
   
   left: 60%;
-<<<<<<< HEAD
-  bottom: -10%;
-
-  transform: translate(-17%,-50%);
-=======
   bottom: 0%;
 
   transform: translate(-17%,0%);
->>>>>>> refs/remotes/origin/main
   text-overflow:clip;
   font-size: 2vw;
   color:white;

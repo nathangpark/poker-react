@@ -1,14 +1,6 @@
 .play-area {
   top: 50%;
   left: 50%;
-<<<<<<< HEAD
-  width: 95%;
-  height: 54vw;
-  display:block;
-  position: absolute;
-  max-width: 170vh;
-  transform: translate(-50%, -50%)
-=======
   width: 90%;
   height: 54vw;
   display:block;
@@ -38,17 +30,12 @@
   border-style: solid;
 
   box-shadow: -2vw 2vw 1vw rgba(0, 0, 0, 0.189);
->>>>>>> refs/remotes/origin/main
 }
 
 .title {
   position: absolute;
   width: 40vw;
-<<<<<<< HEAD
-  height: 10vw;
-=======
   height: 12vw;
->>>>>>> refs/remotes/origin/main
   left:50%;
   bottom:60%;
   transform: translate(-50%, -50%);
@@ -60,10 +47,7 @@
   position:absolute;
   left: 50%;
   top: 50%;
-<<<<<<< HEAD
-=======
 
->>>>>>> refs/remotes/origin/main
   transform: translate(-50%,-50%);
 
   color:white;
@@ -77,11 +61,6 @@
   position:absolute;
   left: 50%;
   bottom: -60%;
-<<<<<<< HEAD
-  transform: translate(-50%,-50%);
-  font-size: 3vw;
-  font-weight: 500;
-=======
 
   width: 100%;
   transform: translate(-50%,-50%);
@@ -91,6 +70,5 @@
   justify-content: center;
   text-align: center;
   
->>>>>>> refs/remotes/origin/main
   opacity: 0.9;
 }

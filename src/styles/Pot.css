@@ -1,43 +1,28 @@
 .pot {
   position: absolute;
   left: 40%;
-<<<<<<< HEAD
-  top: 50.5%;
-=======
   top: 51%;
->>>>>>> refs/remotes/origin/main
   transform: translate(-50%,-50%);
   width: 25vw;
   height: 20vw;
 }
 
 .pot-amount {
-<<<<<<< HEAD
-  width : 10vw;
-  height : 2.5vw;
-  position: absolute; 
-  bottom: 75%;
-=======
   display: block;
   
   width : 10vw;
   height : 2.6vw;
   position: absolute; 
   bottom: 74%;
->>>>>>> refs/remotes/origin/main
   left: 50%;
   transform: translate(-50%,-50%);
 
   background-color: white;
   border-radius: 2vw;
-<<<<<<< HEAD
-  text-align: center;
-=======
 
   justify-content: center;
   text-align: center;
   
->>>>>>> refs/remotes/origin/main
   font-weight:600;
   font-size: 1.75vw;
 

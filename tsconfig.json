@@ -2,11 +2,7 @@
   "compilerOptions": {
     "target": "ESNext",
     "useDefineForClassFields": true,
-<<<<<<< HEAD
     "lib": ["ESNext.Array", "DOM", "DOM.Iterable", "ESNext"],
-=======
-    "lib": ["esnext.array","DOM", "DOM.Iterable", "ESNext"],
->>>>>>> refs/remotes/origin/main
     "allowJs": false,
     "skipLibCheck": true,
     "esModuleInterop": false,
