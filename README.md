@@ -1,11 +1,11 @@
 # **Poker React** - Nathan Park
 
-Built Using:
+**Built Using**:
 - React
 - Vite
 - TypeScript
 
-Current Features 
+**Current Features** 
 - Betting/Raising, Calling/Checking, Folding
 - Variable bets
 - Complex algorithms for opponent choices
@@ -13,3 +13,4 @@ Current Features
 - Chips management
 
 Play the game [HERE](https://nathangpark.github.io/poker-react/)
+- Hosted by GitHub pages
