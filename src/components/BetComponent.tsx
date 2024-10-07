@@ -27,7 +27,11 @@ const BetComponent = ({ handleBet, player, minimum }: Props) => {
         onChange={(e) => setAmount(e.target.value)}
       />
       <Button onClick={() => {handleBet(+amount - (+amount % 5));}} className="btns bet-btn">
+<<<<<<< HEAD
         {"Bet:" + (+amount - (+amount % 5))}
+=======
+        {(+amount - (+amount % 5)) >= player.chips ? "All in" : "Bet:" + (+amount - (+amount % 5))}
+>>>>>>> refs/remotes/origin/main
       </Button>
     </div>
   );

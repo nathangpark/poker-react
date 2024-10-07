@@ -42,7 +42,11 @@ function getPositionOrder(): number[] {
     : opponentNumber == 3
     ? [7, 4, 2, 5]
     : opponentNumber == 4
+<<<<<<< HEAD
     ? [7, 6, 1, 3, 8]
+=======
+    ? [7, 4, 1, 3, 5]
+>>>>>>> refs/remotes/origin/main
     : opponentNumber == 5
     ? [7, 4, 1, 2, 3, 5]
     : opponentNumber == 6
@@ -122,6 +126,10 @@ function resetCards() {
       })
     );
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> refs/remotes/origin/main
   allCards = myCards.cards;
   // undeal order
   for (let i = 0; i < opponentNumber; i++)
@@ -159,6 +167,14 @@ function App() {
     hookSync.isResetting = true;
     hookSync.winnerPositions = [];
     hookSync.isRevealed = false;
+<<<<<<< HEAD
+=======
+
+    allPlayers.forEach((player: Player) => {
+      if (player.chips == 0 && !hookSync.outList.includes(player)) hookSync.outList.push(player);
+    });
+
+>>>>>>> refs/remotes/origin/main
     updateHook();
 
     await sleep(500);
@@ -184,7 +200,11 @@ function App() {
     if (
       hookSync.outList.includes(player) ||
       oppsPlayer.every((player: Player) => {
+<<<<<<< HEAD
         player.chips == 0;
+=======
+        return player.chips == 0;
+>>>>>>> refs/remotes/origin/main
       })
     ) {
       // GAME OVER
@@ -197,10 +217,17 @@ function App() {
     await sleep(1000);
 
     handleInitialBet();
+<<<<<<< HEAD
     await sleep(500 * allPlayers.length);
 
     handleDeal();
 
+=======
+    await sleep(500 * (allPlayers.length - hookSync.outList.length));
+
+    handleDeal();
+    
+>>>>>>> refs/remotes/origin/main
     hookSync.isResetting = false;
     updateHook();
   };
@@ -285,7 +312,11 @@ function App() {
     }
 
     totalAmount = amount + player.contributed;
+<<<<<<< HEAD
     player.contributed = amount;
+=======
+    player.contributed += amount;
+>>>>>>> refs/remotes/origin/main
     bet(player, amount);
 
     // start cycle at next position
@@ -404,7 +435,11 @@ function App() {
     // start cycle
     while (
       matchedPlayerCount !==
+<<<<<<< HEAD
       allPlayers.length - hookSync.foldList.length
+=======
+      allPlayers.length - hookSync.foldList.length - hookSync.outList.length
+>>>>>>> refs/remotes/origin/main
     ) {
       // do not cycle to them if folded or out, skip
       if (
@@ -428,7 +463,14 @@ function App() {
         // go next until done dealing
         if (
           dealOrder[currentGroup] == undefined ||
+<<<<<<< HEAD
           allPlayers.length - hookSync.foldList.length - hookSync.outList.length == 1
+=======
+          allPlayers.length -
+            hookSync.foldList.length -
+            hookSync.outList.length ==
+            1
+>>>>>>> refs/remotes/origin/main
         ) {
           hookSync.allCardsDealt = true;
           updateHook();
@@ -475,7 +517,11 @@ function App() {
 
         updateHook();
         flashAction(index);
+<<<<<<< HEAD
       } else if (allPlayers[index].chips == betAmount) {
+=======
+      } else if (allPlayers[index].chips <= betAmount) {
+>>>>>>> refs/remotes/origin/main
         // on all in
         hookSync.actionList[index] = "All in";
         flashAction(index);
@@ -511,7 +557,11 @@ function App() {
     // if at the end of dealing, set allCardsDealt to true
     if (
       dealOrder[currentGroup] == undefined ||
+<<<<<<< HEAD
       allPlayers.length - hookSync.foldList.length == 1
+=======
+      allPlayers.length - hookSync.foldList.length - hookSync.outList.length == 1
+>>>>>>> refs/remotes/origin/main
     ) {
       hookSync.allCardsDealt = true;
       updateHook();
@@ -535,8 +585,13 @@ function App() {
         let id = dealOrder[currentGroup][i];
         hookSync.dealtList.push(id);
         updateHook();
+<<<<<<< HEAD
       } catch {}
       await sleep(250);
+=======
+        if (id != 0) await sleep(250);
+      } catch {}
+>>>>>>> refs/remotes/origin/main
     }
 
     hookSync.isDealing = false;
@@ -615,10 +670,13 @@ function App() {
     hookSync.pot = 0;
     hookSync.isRevealed = true;
     hookSync.winnerPositions = winners.map((winner: Player) => winner.position);
+<<<<<<< HEAD
 
     allPlayers.forEach((player: Player) => {
       if (player.chips == 0) hookSync.outList.push(player);
     });
+=======
+>>>>>>> refs/remotes/origin/main
     updateHook();
   };
 
@@ -641,6 +699,10 @@ function App() {
     <>
       {hook.started && (
         <div className="play-area">
+<<<<<<< HEAD
+=======
+          <div className="table"/>
+>>>>>>> refs/remotes/origin/main
           {oppsPlayer.map((oppPlayer: Player, index: number) => (
             <PlayerComponent
               player={oppPlayer}
@@ -677,7 +739,12 @@ function App() {
             !hook.foldList.includes(player) &&
             !hook.allCardsDealt &&
             !hook.isDealing &&
+<<<<<<< HEAD
             hook.currentlyActive == player && (
+=======
+            hook.currentlyActive == player &&
+            totalAmount - player.contributed <= player.chips && (
+>>>>>>> refs/remotes/origin/main
               <BetComponent
                 handleBet={handleBet}
                 player={player}
@@ -707,7 +774,13 @@ function App() {
             hook.currentlyActive == player && (
               <Button onClick={handleCheck} className="btns deal-btn">
                 {hook.needToCall
+<<<<<<< HEAD
                   ? "Call: " + (totalAmount - player.contributed)
+=======
+                  ? totalAmount - player.contributed > player.chips
+                    ? "All in"
+                    : "Call: " + (totalAmount - player.contributed)
+>>>>>>> refs/remotes/origin/main
                   : "Check"}
               </Button>
             )}
