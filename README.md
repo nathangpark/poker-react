@@ -6,6 +6,7 @@
 - TypeScript
 
 **Current Features** 
+- Random cards and card group management
 - Betting/Raising, Calling/Checking, Folding
 - Variable bets
 - Complex algorithms for opponent choices
